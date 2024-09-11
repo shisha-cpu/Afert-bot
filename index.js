@@ -12,16 +12,18 @@ bot.onText(/\/start/, (msg) => {
     reply_markup: {
       inline_keyboard: [
         [
-          { text: 'Договор оферты и Политика данных', url: 'https://disk.yandex.ru/d/bTxBqtCo-Cqfig' }
+          { text: 'Публичная оферта', url: 'https://disk.yandex.ru/d/bTxBqtCo-Cqfig' }
         ],
         [
-          { text: 'Пожарная и техника безопасности', url: 'https://disk.yandex.ru/d/bTxBqtCo-Cqfig' }
+          { text: 'Пожарная и техника безопасности', url: 'https://disk.yandex.ru/i/J39gcvjuFH3RGg' }//
         ],
         [
-          { text: 'Договор услуги', url: 'https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2F69nw1otFLpxsqdnPUR1lSzax2VTa6NhQwgYcb2wNV3kTfXwXUZ7phoRcElJFM1I0q%2FJ6bpmRyOJonT3VoXnDag%3D%3D%3A%2FДоговор%20субаренды.docx&name=Договор%20субаренды.docx' }
+          { text: 'Договор услуги', url: 'https://disk.yandex.ru/i/hvwbgoPgGQJ-zg'}],//
+        [
+          { text: 'Договор субаренды', url: 'https://disk.yandex.ru/i/zvkm1RHFk8tBNA' }//
         ],
         [
-          { text: 'Договор субаренды', url: 'https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2F69nw1otFLpxsqdnPUR1lSzax2VTa6NhQwgYcb2wNV3kTfXwXUZ7phoRcElJFM1I0q%2FJ6bpmRyOJonT3VoXnDag%3D%3D%3A%2FДоговор%20услуги%20.docx&name=Договор%20услуги%20.docx' }
+          { text: 'Согласие на обработку персональных данных', url: 'https://disk.yandex.ru/i/H-Aln8XDpT4QjA' }//
         ],
         [
           { text: 'Оферта и Политика данных ознакомлен ✅', callback_data: 'offer_acknowledged' }
@@ -31,6 +33,9 @@ bot.onText(/\/start/, (msg) => {
         ],
         [
           { text: 'Субаренда ознакомлен ✅', callback_data: 'sublease_acknowledged' }
+        ],
+        [
+          { text: 'Техника бесопастности ознакомлен ✅', callback_data: 'tehn_acknowledged' }
         ]
       ]
     }
@@ -56,5 +61,9 @@ bot.on('callback_query', (query) => {
   if (query.data === 'sublease_acknowledged') {
     bot.sendMessage(chatId, 'Ваше согласие с Договором субаренды получено ✅');
     bot.sendMessage(adminChatId, `Пользователь @${username} (ID: ${chatId}) согласен с Договором субаренды.`);
+  }
+  if (query.data === 'tehn_acknowledged') {
+    bot.sendMessage(chatId, 'Ваше согласие с Техникой безопастности  получено ✅');
+    bot.sendMessage(adminChatId, `Пользователь @${username} (ID: ${chatId}) согласен с Техникой безопастности .`);
   }
 });
