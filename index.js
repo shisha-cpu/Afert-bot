@@ -12,7 +12,7 @@ bot.onText(/\/start/, (msg) => {
     reply_markup: {
       inline_keyboard: [
         [
-          { text: 'Публичная оферта', url: 'https://disk.yandex.ru/d/bTxBqtCo-Cqfig' }
+          { text: 'Публичная оферта', url: 'https://disk.yandex.ru/i/Qxk_i7fK6rEDIg' }
         ],
         [
           { text: 'Пожарная и техника безопасности', url: 'https://disk.yandex.ru/i/J39gcvjuFH3RGg' }//
