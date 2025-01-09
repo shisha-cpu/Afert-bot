@@ -1,6 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = '7528483883:AAHmaABfsF6E29iTuyUOR5WGV95ltmQl-OE';
-const bot = new TelegramBot(token, {polling: true});
+const bot = new TelegramBot(token, { polling: true });
 
 // const adminChatId = '1137493485';
 const adminChatId = '197876343'; 
@@ -15,16 +15,20 @@ bot.onText(/\/start/, (msg) => {
           { text: 'Публичная оферта', url: 'https://disk.yandex.ru/i/Qxk_i7fK6rEDIg' }
         ],
         [
-          { text: 'Пожарная и техника безопасности', url: 'https://disk.yandex.ru/i/J39gcvjuFH3RGg' }//
+          { text: 'Пожарная и техника безопасности', url: 'https://disk.yandex.ru/i/J39gcvjuFH3RGg' }
         ],
         [
-          { text: 'Договор услуги', url: 'https://disk.yandex.ru/i/hvwbgoPgGQJ-zg'}],//
-        [
-          { text: 'Договор субаренды', url: 'https://disk.yandex.ru/i/zvkm1RHFk8tBNA' }//
+          { text: 'Договор услуги', url: 'https://disk.yandex.ru/i/hvwbgoPgGQJ-zg' }
         ],
         [
-          { text: 'Согласие на обработку персональных данных', url: 'https://disk.yandex.ru/i/H-Aln8XDpT4QjA' }//
+          { text: 'Договор субаренды', url: 'https://disk.yandex.ru/i/zvkm1RHFk8tBNA' }
         ],
+        [
+          { text: 'Согласие на обработку персональных данных', url: 'https://disk.yandex.ru/i/H-Aln8XDpT4QjA' }
+        ],
+        [
+          { text: 'Телеграм-канал', url: 'https://t.me/vkusneenetrf' }
+        ]
         [
           { text: 'Оферта и Политика данных ознакомлен ✅', callback_data: 'offer_acknowledged' }
         ],
@@ -36,7 +40,8 @@ bot.onText(/\/start/, (msg) => {
         ],
         [
           { text: 'Техника бесопастности ознакомлен ✅', callback_data: 'tehn_acknowledged' }
-        ]
+        ],
+  
       ]
     }
   };
@@ -62,8 +67,9 @@ bot.on('callback_query', (query) => {
     bot.sendMessage(chatId, 'Ваше согласие с Договором субаренды получено ✅');
     bot.sendMessage(adminChatId, `Пользователь @${username} (ID: ${chatId}) согласен с Договором субаренды.`);
   }
+
   if (query.data === 'tehn_acknowledged') {
-    bot.sendMessage(chatId, 'Ваше согласие с Техникой безопастности  получено ✅');
-    bot.sendMessage(adminChatId, `Пользователь @${username} (ID: ${chatId}) согласен с Техникой безопастности .`);
+    bot.sendMessage(chatId, 'Ваше согласие с Техникой безопастности получено ✅');
+    bot.sendMessage(adminChatId, `Пользователь @${username} (ID: ${chatId}) согласен с Техникой безопастности.`);
   }
 });
